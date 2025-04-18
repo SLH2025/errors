@@ -48,8 +48,21 @@
                                     <td>{{ $item->brand->name ?? 1 }}</td>
                                     <td>{{ $item->measurement }}</td>
                                     <td>{{ $item->price }}</td>
-                                    <td><a href="{{ route('price.delete', [$item->id]) }}" class="btn btn-danger">-</a>
+                                    <td>
+                                        <div class="d-flex align-items-center gap-3">
+                                            <div class=""><a href="{{ route('price.delete', [$item->id]) }}"
+                                                    class="btn btn-danger">-</a>
+                                            </div>
+                                            <div class="">
+                                                <form action="{{ route('price.update', [$item->id]) }}" method="POST">
+                                                    @csrf
+                                                    <input type="text" name="price" class="form-control"
+                                                        id="upprice" placeholder="Update Price">
+                                                </form>
+                                            </div>
+                                        </div>
                                     </td>
+
                                 </tr>
                             @endforeach
 
@@ -103,6 +116,20 @@
 
 
     <script src="{{ asset('js/b.js') }}"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const input = document.getElementById('upprice');
+            const form = input.closest('form');
+
+            input.addEventListener('keydown', function(e) {
+                if (e.key === 'Enter') {
+                    e
+                        .preventDefault(); // prevent default Enter behavior (like newline or accidental submit)
+                    form.submit(); // submit the form
+                }
+            });
+        });
+    </script>
 
 
 

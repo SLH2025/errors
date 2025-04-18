@@ -88,4 +88,17 @@ class BrandController extends Controller
             return redirect()->back()->with('error', 'Something went wrong');
         }
     }
+
+    public function updateprice(Request $request, $id)
+    {
+
+        try {
+            $price = Price::where('id', $id)->update([
+                'price' => $request->price
+            ]);
+            return redirect()->back()->with('success', 'Price Updated Successfully');
+        } catch (\Throwable $th) {
+            return redirect()->back()->with('error', 'Price Updation Failed');
+        }
+    }
 }

@@ -22,4 +22,5 @@ route::prefix('sales')->group(function () {
 Route::prefix('price')->group(function () {
     Route::match(['get', 'post'], '/', [BrandController::class, 'price'])->name('price');
     Route::get('delete/{id}', [BrandController::class, 'deleteprice'])->name('price.delete');
+    Route::post('update-price/{id}', [BrandController::class, 'updateprice'])->name('price.update');
 });

@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Price</title>
     <link rel="stylesheet" href="{{ asset('css/b.css') }}">
-    @vite(['resources/css/app.css', 'resorces/js/app.js'])
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 
 <body>

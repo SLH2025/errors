@@ -2,7 +2,7 @@ import './bootstrap';
 import jQuery from 'jquery';
 window.$ = window.jQuery = jQuery;
 import 'datatables.net-dt';
-import 'datatables.net-dt/css/jquery.datatables.css';
+import '../css/datatable.css'
 
 
 
